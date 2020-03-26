@@ -17,37 +17,26 @@
     "clean": "rimraf dist",
     "prettier:fix": "prettier './**/*.js' './**/*.css' './**/*.md' --write",
     "build": "yarn run clean && yarn run rollup -c && yarn checkimport && yarn run start",
-    "ci": "yarn run lint && yarn run lint:prettier && yarn run test && yarn run typecheck && yarn run build && nodemon server/server.js localhost 4242",
+    "ci": "yarn run build",
     "prepublish": "yarn run ci",
     "doctoc": "doctoc README.md",
     "storybook": "start-storybook -p 6006 "
   },
-  "keywords": [
-    "React",
-    "Stripe",
-    "Elements"
-  ],
+  "keywords": ["React", "Stripe", "Elements"],
   "author": "Stripe (https://www.stripe.com)",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/stripe/react-stripe-js.git"
   },
-  "files": [
-    "dist",
-    "src"
-  ],
+  "files": ["dist", "src"],
   "jest": {
     "preset": "ts-jest/presets/js-with-ts",
-    "setupFilesAfterEnv": [
-      "<rootDir>/test/setupJest.js"
-    ],
+    "setupFilesAfterEnv": ["<rootDir>/test/setupJest.js"],
     "globals": {
       "ts-jest": {
         "diagnostics": {
-          "ignoreCodes": [
-            151001
-          ]
+          "ignoreCodes": [151001]
         }
       }
     }
