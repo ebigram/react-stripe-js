@@ -7,13 +7,12 @@ import { loadStripe } from "@stripe/stripe-js";
 import {
   CardNumberElement,
   CardCvcElement,
-  CardElement,
   CardExpiryElement,
   Elements,
   ElementsConsumer
 } from "@stripe/react-stripe-js";
 
-import { logEvent, Result, ErrorResult } from "../util";
+import { logEvent } from "../util";
 import "../styles/common.css";
 
 const ELEMENT_OPTIONS = {
@@ -46,7 +45,7 @@ class CheckoutForm extends React.Component {
   handleSubmit = async event => {
     event.preventDefault();
     const { stripe, elements } = this.props;
-    const { name, postal } = this.state;
+    //const { name, postal } = this.state;
 
     if (!stripe || !elements) {
       // Stripe.js has not loaded yet. Make sure to disable
