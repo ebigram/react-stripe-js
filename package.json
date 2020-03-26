@@ -14,27 +14,20 @@
     "checkimport": "scripts/check-imports",
     "prettier:fix": "prettier './**/*.js' './**/*.css' './**/*.md' --write",
     "clean": "rimraf dist",
-    "build": "yarn run clean && yarn run rollup -c && yarn checkimport && yarn run start",
+    "build": "yarn run clean && yarn run rollup -c && yarn run start",
     "ci": "yarn run build",
     "prepublish": "yarn run ci",
     "doctoc": "doctoc README.md",
     "storybook": "start-storybook -p 6006 "
   },
-  "keywords": [
-    "React",
-    "Stripe",
-    "Elements"
-  ],
+  "keywords": ["React", "Stripe", "Elements"],
   "author": "Stripe (https://www.stripe.com)",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/stripe/react-stripe-js.git"
   },
-  "files": [
-    "dist",
-    "src"
-  ],
+  "files": ["dist", "src"],
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "7.8.3",
     "@now/node-server": "0.8.2",
