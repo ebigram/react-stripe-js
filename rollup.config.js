@@ -4,6 +4,7 @@ import resolve from "rollup-plugin-node-resolve";
 import { terser } from "rollup-plugin-terser";
 import replace from "rollup-plugin-replace";
 import pkg from "./package.json";
+import postcss from "rollup-plugin-postcss";
 
 export default [
   {
@@ -14,6 +15,9 @@ export default [
       { file: pkg.module, format: "es" }
     ],
     plugins: [
+      postcss({
+        extensions: [".css"]
+      }),
       resolve(),
       babel({
         extensions: [".ts", ".js", ".tsx", ".jsx"]
@@ -36,6 +40,9 @@ export default [
       }
     ],
     plugins: [
+      postcss({
+        extensions: [".css"]
+      }),
       resolve(),
       babel({
         extensions: [".ts", ".js", ".tsx", ".jsx"]
@@ -58,6 +65,9 @@ export default [
       }
     ],
     plugins: [
+      postcss({
+        extensions: [".css"]
+      }),
       resolve(),
       babel({
         extensions: [".ts", ".js", ".tsx", ".jsx"]
