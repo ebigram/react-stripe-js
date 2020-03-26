@@ -14,7 +14,7 @@
     "checkimport": "scripts/check-imports",
     "prettier:fix": "prettier './**/*.js' './**/*.css' './**/*.md' --write",
     "clean": "rimraf dist",
-    "build": "yarn run clean && yarn run rollup -c && yarn run start",
+    "build": "yarn install && yarn run clean && yarn run rollup -c && yarn run start",
     "ci": "yarn run build",
     "prepublish": "yarn run ci",
     "doctoc": "doctoc README.md",
