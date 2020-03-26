@@ -12,7 +12,6 @@
     "lint": "eslint '{src,examples}/**/*.{ts,tsx,js}'",
     "lint:prettier": "prettier './**/*.js' './**/*.css' './**/*.md' --list-different",
     "checkimport": "scripts/check-imports",
-    "clean": "rimraf dist",
     "prettier:fix": "prettier './**/*.js' './**/*.css' './**/*.md' --write",
     "build": "yarn run clean && yarn run rollup -c && yarn checkimport && yarn run start",
     "ci": "yarn run build",
