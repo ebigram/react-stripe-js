@@ -13,6 +13,7 @@
     "lint:prettier": "prettier './**/*.js' './**/*.css' './**/*.md' --list-different",
     "checkimport": "scripts/check-imports",
     "prettier:fix": "prettier './**/*.js' './**/*.css' './**/*.md' --write",
+    "clean": "",
     "build": "yarn run clean && yarn run rollup -c && yarn checkimport && yarn run start",
     "ci": "yarn run build",
     "prepublish": "yarn run ci",
