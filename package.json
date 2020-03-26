@@ -9,15 +9,15 @@
   "browser": "dist/react-stripe.umd.js",
   "types": "dist/react-stripe.d.ts",
   "scripts": {
+    "start": "nodemon server/server.js localhost 4242",
     "test": "jest",
     "lint": "eslint '{src,examples}/**/*.{ts,tsx,js}'",
     "lint:prettier": "prettier './**/*.js' './**/*.css' './**/*.md' --list-different",
-    "typecheck": "tsc",
-    "build": "yarn run clean && yarn run rollup -c && yarn checkimport",
     "checkimport": "scripts/check-imports",
     "clean": "rimraf dist",
     "prettier:fix": "prettier './**/*.js' './**/*.css' './**/*.md' --write",
-    "ci": "yarn run lint && yarn run lint:prettier && yarn run test && yarn run typecheck && yarn run build",
+    "build": "yarn run clean && yarn run rollup -c && yarn checkimport && yarn run start",
+    "ci": "yarn run lint && yarn run lint:prettier && yarn run test && yarn run typecheck && yarn run build && nodemon server/server.js localhost 4242",
     "prepublish": "yarn run ci",
     "doctoc": "doctoc README.md",
     "storybook": "start-storybook -p 6006 "
@@ -53,7 +53,14 @@
     }
   },
   "dependencies": {
-    "prop-types": "^15.7.2"
+    "@now/node-server": "0.8.2",
+    "@stripe/react-stripe-js": "1.1.0",
+    "@stripe/stripe-js": "1.2.0",
+    "express": "4.17.1",
+    "nodemon": "2.0.2",
+    "prop-types": "^15.7.2",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.0",
