@@ -13,7 +13,7 @@
     "lint:prettier": "prettier './**/*.js' './**/*.css' './**/*.md' --list-different",
     "checkimport": "scripts/check-imports",
     "prettier:fix": "prettier './**/*.js' './**/*.css' './**/*.md' --write",
-    "clean": "",
+    "clean": "rimraf dist",
     "build": "yarn run clean && yarn run rollup -c && yarn checkimport && yarn run start",
     "ci": "yarn run build",
     "prepublish": "yarn run ci",
@@ -28,31 +28,15 @@
     "url": "https://github.com/stripe/react-stripe-js.git"
   },
   "files": ["dist", "src"],
-  "jest": {
-    "preset": "ts-jest/presets/js-with-ts",
-    "setupFilesAfterEnv": ["<rootDir>/test/setupJest.js"],
-    "globals": {
-      "ts-jest": {
-        "diagnostics": {
-          "ignoreCodes": [151001]
-        }
-      }
-    }
-  },
   "dependencies": {
     "@now/node-server": "0.8.2",
     "@stripe/react-stripe-js": "1.1.0",
     "@stripe/stripe-js": "1.2.0",
-    "@types/react": "16.9.25",
-    "@types/react-dom": "16.9.5",
     "express": "4.17.1",
     "nodemon": "2.0.2",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "source-map-loader": "0.2.4",
-    "ts-loader": "6.2.2",
-    "typescript": "3.8.3"
+    "react-dom": "16.13.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.0",
