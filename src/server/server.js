@@ -3,8 +3,17 @@ const app = express();
 const { resolve } = require("path");
 // Replace if using a different env file or config
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+app.use(express.static(__dirname + "/public"));
 
-app.use(express.static(process.env.STATIC_DIR));
+//app.use(express.static(process.env.STATIC_DIR));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD"); // update to match the domain you will make the request from
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 app.use(
   express.json({
     // We need the raw body to verify webhook signatures.
@@ -30,14 +39,17 @@ const calculateOrderAmount = items => {
   return 1400;
 };
 
-app.post("/create-payment-intent", async (req, res) => {
-  const { items, currency } = req.body;
+app.post("/pay", async (req, res) => {
+ // const { items, currency } = req.body;
   // Create a PaymentIntent with the order amount and currency
-  const paymentIntent = await stripe.paymentIntents.create({
-    amount: calculateOrderAmount(items),
-    currency: currency
-  });
+  // Set your secret key. Remember to switch to your live secret key in production!
+  // See your keys here: https://dashboard.stripe.com/account/apikeys
 
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: 1099,
+    currency: "usd",
+    metadata: { integration_check: "accept_a_payment" }
+  });
   // Send publishable key and PaymentIntent details to client
   res.send({
     publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,

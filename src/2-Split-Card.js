@@ -12,8 +12,7 @@ import {
   ElementsConsumer
 } from "@stripe/react-stripe-js";
 
-import { logEvent } from "../util";
-import "../styles/common.css";
+import "./styles/common.css";
 
 const ELEMENT_OPTIONS = {
   style: {
@@ -78,6 +77,7 @@ class CheckoutForm extends React.Component {
       const response = await fetch("/pay", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+
         body: JSON.stringify({
           payment_method_id: result.paymentMethod.id
         })
@@ -88,13 +88,23 @@ class CheckoutForm extends React.Component {
       this.handleServerResponse(serverResponse);
     }
   };
-
-  handleServerResponse = serverResponse => {
+  handleServerResponse = async serverResponse => {
+    const { stripe, elements } = this.props;
+    const cardElement = elements.getElement(CardNumberElement);
     if (serverResponse.error) {
       // An error happened when charging the card,
       // show the error in the payment form.
     } else {
       // Show a success message
+      console.log("recieved payment intent. confirming...")
+      const result = await stripe.confirmCardPayment(serverResponse.body.client_secret, {
+        payment_method: {
+          card: cardElement,
+          billing_details: {
+            name: "Jenny Rosen"
+          }
+        }
+      });
     }
   };
 
@@ -121,32 +131,11 @@ class CheckoutForm extends React.Component {
           }}
         />
         <label htmlFor="cardNumber">Card Number</label>
-        <CardNumberElement
-          id="cardNumber"
-          onBlur={logEvent("blur")}
-          onChange={logEvent("change")}
-          onFocus={logEvent("focus")}
-          onReady={logEvent("ready")}
-          options={ELEMENT_OPTIONS}
-        />
+        <CardNumberElement id="cardNumber" options={ELEMENT_OPTIONS} />
         <label htmlFor="expiry">Card Expiration</label>
-        <CardExpiryElement
-          id="expiry"
-          onBlur={logEvent("blur")}
-          onChange={logEvent("change")}
-          onFocus={logEvent("focus")}
-          onReady={logEvent("ready")}
-          options={ELEMENT_OPTIONS}
-        />
+        <CardExpiryElement id="expiry" options={ELEMENT_OPTIONS} />
         <label htmlFor="cvc">CVC</label>
-        <CardCvcElement
-          id="cvc"
-          onBlur={logEvent("blur")}
-          onChange={logEvent("change")}
-          onFocus={logEvent("focus")}
-          onReady={logEvent("ready")}
-          options={ELEMENT_OPTIONS}
-        />
+        <CardCvcElement id="cvc" options={ELEMENT_OPTIONS} />
         <label htmlFor="postal">Postal Code</label>
         <input
           id="postal"

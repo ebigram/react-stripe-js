@@ -8,26 +8,35 @@
   "browser:min": "dist/react-stripe.umd.min.js",
   "browser": "dist/react-stripe.umd.js",
   "scripts": {
-    "start": "nodemon src/server/server.js localhost 4242",
+    "serverStart": "nodemon src/server/server.js localhost 4242",
+    "start": "react-scripts start",
     "lint": "eslint '{src,examples}/**/*.{ts,tsx,js}'",
     "lint:prettier": "prettier './**/*.js' './**/*.css' './**/*.md' --list-different",
     "checkimport": "scripts/check-imports",
     "prettier:fix": "prettier './**/*.js' './**/*.css' './**/*.md' --write",
     "clean": "rimraf dist",
-    "build": "yarn run clean && yarn run rollup -c && yarn run start",
+    "build": "yarn run rollup -c && yarn run start",
     "ci": "yarn run build",
     "prepublish": "yarn run ci",
     "doctoc": "doctoc README.md",
     "storybook": "start-storybook -p 6006 "
   },
-  "keywords": ["React", "Stripe", "Elements"],
+  "keywords": [
+    "React",
+    "Stripe",
+    "Elements"
+  ],
   "author": "Stripe (https://www.stripe.com)",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/stripe/react-stripe-js.git"
   },
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
+  "proxy": "http://localhost:4242",
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "7.8.3",
     "@now/node-server": "0.8.2",
@@ -35,29 +44,25 @@
     "@stripe/stripe-js": "1.2.0",
     "express": "4.17.1",
     "nodemon": "2.0.2",
+    "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "rollup-plugin-postcss": "2.5.0"
+    "react-scripts": "^3.4.1",
+    "rollup-plugin-postcss": "2.5.0",
+    "stripe": "^8.37.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.0",
     "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "7.8.3",
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-react": "^7.7.0",
     "@storybook/addon-actions": "^5.2.6",
-    "@babel/plugin-proposal-class-properties": "7.8.3",
     "@storybook/addon-links": "^5.2.6",
     "@storybook/addons": "^5.2.6",
-    "@storybook/preset-typescript": "^1.2.0",
     "@storybook/react": "^5.2.6",
     "@stripe/stripe-js": "^1.2.0",
-    "@types/enzyme": "^3.10.4",
-    "@types/jest": "^25.1.1",
-    "@types/react": "^16.9.19",
-    "@types/react-dom": "^16.9.5",
-    "@typescript-eslint/eslint-plugin": "^2.18.0",
-    "@typescript-eslint/parser": "^2.18.0",
     "@wessberg/rollup-plugin-ts": "^1.2.15",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
@@ -77,10 +82,9 @@
     "jest": "^25.1.0",
     "prettier": "^1.19.1",
     "react": "~16.9.0",
-    "react-docgen-typescript-loader": "^3.6.0",
     "react-dom": "~16.9.0",
     "rimraf": "^2.6.2",
-    "rollup": "^1.27.0",
+    "rollup": "^2.2.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
@@ -91,5 +95,17 @@
     "@stripe/stripe-js": "^1.2.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
