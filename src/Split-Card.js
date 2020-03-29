@@ -14,8 +14,13 @@ import {
   Elements,
   ElementsConsumer
 } from "@stripe/react-stripe-js";
-
 import "./assets/css/2-Card-Detailed.css";
+import "./assets/css/common.css";
+import "./assets/css/custom.css";
+import "./assets/css/loader-typing.css";
+import "./assets/css/loaders/loader-clock.css";
+import "./assets/css/loaders/loader-pulse.css";
+import "./assets/css/loaders/loader-square.css"
 const ELEMENT_OPTIONS = {
   style: {
     base: {
@@ -165,7 +170,7 @@ class CheckoutForm extends React.Component {
               this.setState({ postal: event.target.value });
             }}
           />
-          <button type="submit" onSubmit={this.handleSubmit} disabled={!stripe}>
+          <button type="submit" class="SubmitButton" onSubmit={this.handleSubmit} disabled={!stripe}>
             Submit Payment
           </button>
         </form>
