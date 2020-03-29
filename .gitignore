@@ -1,0 +1,9 @@
+.DS_Store
+.cache
+node_modules
+.history
+build
+dist
+es
+lib
+*.log
