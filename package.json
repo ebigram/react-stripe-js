@@ -14,7 +14,7 @@
     "clean": "rimraf dist",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "aws s3 sync build/ s3://app.tinwave.com",
+    "deploy": "aws s3 sync --delete build/ s3://app.tinwave.com",
     "doctoc": "doctoc README.md"
   },
   "keywords": [
