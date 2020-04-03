@@ -12,7 +12,7 @@ class ReviewListing extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: env.SAMPLE_DESIGN_CART.message.products,
+      products: props.subDesign,
       classes: makeStyles(theme => ({
         listItem: {
           padding: theme.spacing(1, 0)
@@ -36,7 +36,11 @@ class ReviewListing extends React.Component {
   }
   render() {
     const { products, classes } = this.state;
+    console.log("products:", this.props.subDesign);
+    return this.props.subDesign ? this.renderProducts(this.props.subDesign.products,classes) : <br/>;
+  }
 
+    renderProducts(products,classes){
     return (
       <React.Fragment>
         <Typography variant="h6" gutterBottom>

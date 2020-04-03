@@ -5,10 +5,10 @@ export function createCustomer(paymentMethod) {
   return request(
     {
       method: "POST",
-      url: process.env.SERVER + "/billing/create-customer/",
+      url: env.PROD_SERVER + "/billing/create-customer/",
       headers: {
         "Content-Type": "application/json",
-        Authorization: env.ACCESS_ID
+        Authorization: env.ACCESS_TOKEN
       },
       body: paymentMethod
     },
@@ -20,23 +20,24 @@ export function createCustomer(paymentMethod) {
   );
 }
 
-export function designSubscription(requirements) {
+export function designSubscription(token,requirements) {
   return request(
     {
       method: "POST",
-      url: process.env.SERVER + "/billing/design-subscription/",
+      url: env.PROD_SERVER + "/billing/design-subscription/",
       headers: {
-        "Content-Type": "application/json",
-        Authorization: env.ACCESS_ID
+        "Content-Type": "application/",
+        Authorization: token ? token : ""
       },
-      body: requirements
+      body: (requirements ? JSON.stringify(requirements) : JSON.stringify(env.SAMPLE_DESIGN_REQUIREMENTS))
     },
     function(error, response, body) {
+      console.log("error: " + error);
       console.log("Status:", response.statusCode);
       console.log("Headers:", JSON.stringify(response.headers));
       console.log("Response:", body);
     }
-  );
+    );
 }
 
   export function getUrlVars() {
@@ -56,15 +57,14 @@ function getUrlParam(parameter, defaultvalue){
 }
   
 
-function getAllUrlParams(url) {
+function getAllUrlParams() {
 
   // get query string from url (optional) or window
-  var queryString = url ? url.split('?')[1] : window.location.hash.slice(1);
+  var queryString = window.location.hash.slice(1);
 
   // we'll store the parameters here
   var obj = {};
 
-  console.log(queryString);
 
   // if query string exists
   if (queryString) {
@@ -85,7 +85,7 @@ function getAllUrlParams(url) {
 
       // (optional) keep case consistent
       paramName = paramName.toLowerCase();
-      if (typeof paramValue === 'string') paramValue = paramValue.toLowerCase();
+      if (typeof paramValue === 'string') paramValue = paramValue;
 
       // if the paramName ends with square brackets, e.g. colors[] or colors[2]
       if (paramName.match(/\[(\d+)?\]$/)) {
