@@ -12,7 +12,7 @@
     "lint:prettier": "prettier './**/*.js' './**/*.css' './**/*.md' --list-different",
     "prettier:fix": "prettier './**/*.js' './**/*.css' './**/*.md' --write",
     "clean": "rimraf dist",
-    "start": "PORT=80 BROWSER=none react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "deploy": "aws s3 sync --delete build/ s3://app.tinwave.com",
     "doctoc": "doctoc README.md"
