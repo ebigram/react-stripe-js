@@ -69,14 +69,11 @@ export class CheckoutForm extends React.Component {
     const ACCESS_TOKEN = getAllUrlParams().id_token;
     console.log("token", ACCESS_TOKEN);
     //return designSubscription(ACCESS_TOKEN,env.SAMPLE_DESIGN_REQUIREMENTS);
-    const proxy_url = "https://secure-shore-76384.herokuapp.com/";
-
-    fetch(proxy_url + env.PROD_SERVER + "/billing/design-subscription/", {
+    fetch(env.PROD_SERVER + "/billing/design-subscription/", {
       method: "POST",
       headers: {
-        "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
-        Authorization: ACCESS_TOKEN
+        "Authorization": ACCESS_TOKEN
       },
       body: JSON.stringify(env.SAMPLE_DESIGN_REQUIREMENTS)
     })
