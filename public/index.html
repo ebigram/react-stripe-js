@@ -1,48 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <title>Tinwave - Review - Step 4</title>
-    <meta name="description" content="Tinwave Hubs & Beacons" />
-    <!-- Begin loading animation -->
-    <link
-      href="assets/css/loaders/loader-pulse.css"
-      rel="stylesheet"
-      type="text/css"
-      media="all"
-    />
-    <!-- End loading animation -->
-    <link
-      href="assets/css/theme.css"
-      rel="stylesheet"
-      type="text/css"
-      media="all"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Nunito:400,400i,600,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
+  <head>
+    <meta charset="utf-8">
+    <title>Tinwave - Getting Started - Step 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tinwave Hubs & Beacons">
+    <!-- Begin loading animation -->
+    <link href="assets/css/loaders/loader-pulse.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- End loading animation -->
+    <link href="assets/css/theme.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,600,700&display=swap" rel="stylesheet">
   </head>
+
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div class="loader">
       <div class="loading-animation"></div>
     </div>
@@ -53,7 +24,7 @@
             <img alt="Tinwave" src="assets/img/logos/logo.png">
           </a>
           <div class="d-flex align-items-center order-lg-3">
-            <a href="https://auth.tinwave.com/login?client_id=2p9jbgcman1erv9373asi9rs20&response_type=token&scope=email+openid&redirect_uri=https://app.tinwave.com/" class="btn btn-primary-2 ml-lg-4 mr-3 mr-md-4 mr-lg-0 d-none d-sm-block order-lg-3">Sign-in</a>
+            <a href="https://auth.tinwave.com/login?client_id=2g2f4dnmtt59serr08fuivj332&response_type=code&scope=email+openid&redirect_uri=https://app.tinwave.com/" class="btn btn-primary-2 ml-lg-4 mr-3 mr-md-4 mr-lg-0 d-none d-sm-block order-lg-3">Sign-in</a>
 
           </div>
           </div>
@@ -65,18 +36,20 @@
       <div class="container">
         <div class="row section-title justify-content-center text-center">
           <div class="col-md-9 col-lg-8 col-xl-7">
-            <h2 class="display-4">Review Your Content</h2>
-            <div class="lead">Review and pay for beacons, we will recommend how many hubs you will need for your business.</div><br>
+            <!-- TODO: Make title react dynamic-->
+            <h2 class="display-4">Getting Started</h2>
+            <div class="lead">Define Your Business, Locations And Beacon Needs.</div><br>
               <div class="col d-flex flex-column align-items-center">
+            <!-- TODO: Use stepper for breadcrumbs-->
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="signup-step-1.html">Getting Started</a>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="signup-step-1.html">Getting Started</a>
                     </li>
-                    <li class="breadcrumb-item"><a href="signup-step-2.html">Locations</a>
+                    <li class="breadcrumb-item">Locations
                     </li>
-                    <li class="breadcrumb-item"><a href="signup-step-3.html">Floorplan</a>
+                    <li class="breadcrumb-item">Floorplan
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page"><a href="review-signup.html">Review</a>
+                    <li class="breadcrumb-item">Review
                     </li>
                   </ol>
                 </nav>
@@ -84,51 +57,65 @@
           </div>
         </div>
 
-<div class="container">
-<div class="row align-items-left justify-content-around">
-</div>
-        <div class="row align-items-left justify-content-around">
-
-          <div class="col-md-9 col-lg-5" data-aos="fade-in">
-		  		<div class="card">
-                  <div class="card-body">
-                    <h4>My Business Location 1</h4>
-                    <p>
-                      123 High Street<br>Los Angeles, CA 90013
-                    </p>
-                    <h6>Beacons</h6>
-                    <p>TinwavePass: 15
-                    <br>TinwaveTag: 8</p>
-                    <h6>Floors</h6>
-                    <p>Showroom - 25x60 Feet - Open Floor Plan<br>Office - 50x20 Meters</p>
-                    <a href="#">View Floor Plan</a>
+       <!--TODO: reuse form formatting-->
+<div class="container" id="root">
+	<!-- form>
+        <div class="row align-items-center justify-content-around">
+                  <div class="col-md">
+                    <div class="form-group">
+                      <input class="form-control" placeholder="Business Name" type="text">
+                    </div>
                   </div>
-                </div><br>
-                <div class="card">
-                  <div class="card-body">
-                    <h4>My Business Location 2</h4>
-                    <p>
-                      123 Low Street<br>Los Angeles, CA 90013
-                    </p>
-                    <h6>Beacons</h6>
-                    <p>TinwavePass: 12
-                    <br>TinwaveTag: 0</p>
-                    <h6>Floors</h6>
-                    <p>Showroom - 25x60 Feet - Open Floor Plan</p>
-                    <a href="#">View Floor Plan</a>
-                  </div>
-                  </div>
-
-          </div>
-          <div class="col-md-9 col-lg-6 col-xl-5 mt-4 mt-md-5 mt-lg-0">
-	          			  <div class="row align-items-center justify-content-center text-center">
-	           	<div class="mr-2 mb-2">
-				</div>
-        		</div>
+                  <div class="col-md">
+                    <div class="form-group">
+                      <select class="custom-select">
+                        <option selected>How Many Locations?</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                        <option value="4">Four</option>
+                        <option value="5">Five</option>
+                        <option value="6">Six</option>
+                        <option value="x">More</option>
+                      </select>
+                      <img src="assets/img/icons/interface/icon-caret-down.svg" alt="Arrow Down" class="icon icon-sm">
+                    </div>
+                  </div> 	
+			</div>
                 <div class="row align-items-center justify-content-around">
-          <div id="root"></div>
+                  <div class="col-md">
+                    <div class="form-group">
+                      <select class="custom-select">
+                        <option selected>Tinwave Subscription</option>
+                        <option value="standard">Standard</option>
+                        <option value="enterprise">Enterprise</option>
+                      </select>
+                      <img src="assets/img/icons/interface/icon-caret-down.svg" alt="Arrow Down" class="icon icon-sm">
+                    </div>
+                  </div>
+                  <div class="col-md">
+                <div class="d-flex flex-wrap">
+	             <span><h6>Beacon Types:</h6></span>&nbsp;&nbsp;&nbsp;
+                  <div class="custom-control custom-checkbox mr-4">
+                    <input type="checkbox" class="custom-control-input" id="check-1">
+                    <label class="custom-control-label" for="check-1">TinwavePass</label>
+                  </div>
+                  <div class="custom-control custom-checkbox mr-4">
+                    <input type="checkbox" class="custom-control-input" id="check-2">
+                    <label class="custom-control-label" for="check-2">TinwaveTag</label>
+                  </div>
                 </div>
-    </section> 
+              </div>
+        </div>
+        <div class="row align-items-center justify-content-around">
+	              <div class="mr-2 mb-2">
+                    <a href="signup-step-2.html" class="btn btn-lg btn-primary-2">Next Step</a>
+                  </div>
+        </div></form -->
+</div>
+
+   
+      </div></section>
 
       <footer class="bg-primary-3 text-white links-white pb-4 footer-1">
       <div class="container">
@@ -215,21 +202,11 @@
     <a href="#top" class="btn btn-primary rounded-circle btn-back-to-top" data-smooth-scroll data-aos="fade-up" data-aos-offset="2000" data-aos-mirror="true" data-aos-once="false">
       <img src="assets/img/icons/interface/icon-arrow-up.svg" alt="Icon" class="icon bg-white" data-inject-svg>
     </a>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-    <script src="jquery.js"></script>
     <!-- Required vendor scripts (Do not remove) -->
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/popper.min.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+
     <!-- Optional Vendor Scripts (Remove the plugin script here and comment initializer script out of index.js if site does not use that feature) -->
 
     <!-- AOS (Animate On Scroll - animates elements into view while scrolling down) -->
@@ -270,10 +247,11 @@
     <script type="text/javascript" src="assets/js/typed.min.js"></script>
     <!-- Required theme scripts (Do not remove) -->
     <script type="text/javascript" src="assets/js/theme.js"></script>
-    <script type="text/javascript" src="assets/js/svg-injector.js"></script>
     <!-- Removes page load animation when window is finished loading -->
     <script type="text/javascript">
       window.addEventListener("load",function(){document.querySelector('body').classList.add('loaded');});
     </script>
+
   </body>
+
 </html>
